@@ -67,10 +67,10 @@
 <body>
     <div class="container">
         <h1>Login</h1>
-        <form action="" method="post">
-            <input type="text" name="name" placeholder="Name">
-            <input type="email" name="mail" placeholder="Mail">
-            <input type="password" name="pass" placeholder="Password">
+        <form action="{{route('login')}}" method="post">
+            @csrf
+            <input type="email" name="email" placeholder="Mail">
+            <input type="password" name="password" placeholder="Password">
             <input type="submit" value="Kayit Ol">
         </form>
     </div>

@@ -11,14 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('iletisim', function (Blueprint $table) {
+        Schema::create('order_items', function (Blueprint $table) {
             $table->id();
-            $table->string("adsoyad")->nullable();
-            $table->string("mail")->nullable();
-            $table->string("telefon")->nullable();
-            $table->text("metin")->nullable();
+            $table->unsignedBigInteger('order_id');
+            $table->foreign('order_id')->references('id')->on('orders');
+            $table->unsignedBigInteger('product_id');
+            $table->foreign('product_id')->references('id')->on('products');
+            $table->integer('quantity');
+            $table->decimal('price', 8, 2);
             $table->timestamps();
         });
+
     }
 
     /**
@@ -26,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('iletisim');
+        //
     }
 };
