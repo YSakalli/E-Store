@@ -149,10 +149,10 @@
 
         <div class="link">
             <h1>Category</h1>
-            <a href="{{route('bulb')}}"><img src="{{ asset('assets/bulb.png') }}" alt="Bulb"><h3>Bulb - Lamba</h3></a>
-            <a href="{{route('wire')}}"><img src="{{ asset('assets/coil.png') }}" alt="Coil"><h3>Wire - Kablo</h3></a>
-            <a href="{{route('triplesocket')}}"><img src="{{ asset('assets/wire.png') }}" alt="triple socket"><h3>Triple Socket - Üçlü </h3></a>
-            <a href="{{route('transformer')}}"><img src="{{ asset('assets/transformer.png') }}" alt="Transformer"><h3>Transformer - Trafo</h3></a>
+            <a href="{{route('tshirt')}}"><img src="{{ asset('assets/shirt.png') }}" alt="TShirt"><h3>T-Shirt</h3></a>
+            <a href="{{route('sweatshirt')}}"><img src="{{ asset('assets/hoodie.png') }}" alt="Sweatshirt"><h3>Sweatshirt</h3></a>
+            <a href="{{route('pant')}}"><img src="{{ asset('assets/pants.png') }}" alt="Pant"><h3>Pant</h3></a>
+            <a href="{{route('backpack')}}"><img src="{{ asset('assets/backpack.png') }}" alt="Backpack"><h3>Backpack</h3></a>
         </div>
 
 
