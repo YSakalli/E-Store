@@ -75,7 +75,13 @@
 </style>
 
 <div class="container">
-    <h1>Bütün Elektirik Malzemeleri</h1>
+        @guest
+            <h1>Lütfen <a href="{{ route('login') }}">giriş yapın</a> veya <a href="{{ route('register') }}">kaydolun</a>.</h1>
+        @else
+            <h1>Merhaba,
+                @if(auth()->user()->is_admin)Admin @endif
+                {{ Auth::user()->name }}!</h1>
+        @endguest
 
     <div class="promotion">
         <div class="imgdiv">

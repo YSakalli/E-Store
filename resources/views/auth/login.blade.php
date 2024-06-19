@@ -7,50 +7,41 @@
     <title>Document</title>
 </head>
 <style>
-    body{
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
-    .container{
-        background-color: #f8f8f8;
-        height: 64vh;
-        width: 40vw;
-        border-radius: 10px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-    }
-    .container form{
-        width: 80%;
-        display: flex;
-        flex-direction: column;
-    }
-    .container form input{
+    .container {
+    width: 300px;
+    margin: 150px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
 
-        border: none;
-        outline: none;
-        height: 32px;
-        border-bottom: 2px solid rgba(0, 0, 0, 0.5);
-        background-color: #f8f8f8;
-        margin-top: 8px;
-        font-size: 16px;
-    }
-    .container form input:last-child {
-        border: none;
-        color: white;
-        border-radius: 10px;
+h1 {
+    text-align: center;
+}
 
-        font-size: 14px;
-        background-color: #2196f3;
-        margin-top: 16px;
-        height: 32px;
+input[type="email"],
+input[type="password"],
+input[type="submit"] {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
 
-    }
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
     @media only screen and (max-width: 480px) {
     /* Mobil*/
     .container{

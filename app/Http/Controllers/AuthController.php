@@ -14,7 +14,6 @@ class AuthController extends Controller
     }
     public function login(Request $request)
     {
-
         $user = User::where('email', $request->email)->first();
 
         if (!$user || !Hash::check($request->password, $user->password)) {
@@ -24,12 +23,11 @@ class AuthController extends Controller
         Auth::login($user);
 
         return redirect()->route('index');
-        dd($request->all());
     }
 
     public function logout()
     {
         Auth::logout();
-        return redirect('/')->name('logout');
+        return redirect('/');
     }
 }

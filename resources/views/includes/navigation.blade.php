@@ -20,7 +20,7 @@
         width: 80px;
         position: absolute;
         transform: translate(-50%);
-        top: 16px;
+        top: 0px;
 
     }
 
@@ -163,7 +163,19 @@
 </div>
 
 <div class="cart">
+    @guest
     <a href="{{route('login')}}">Login</a>
+
+    @else
+        <p>Merhaba, {{ Auth::user()->name }}!</p>
+        @if(auth()->user()->is_admin)
+                <a href="{{route('addproduct')}}">Urun Ekle</a>
+        @endif
+        <form action="{{route('logout')}}" method="POST">
+            @csrf
+            <button type="submit">Logout</button>
+        </form>
+    @endguest
     <a href="{{route('cart')}}"><img src="{{ asset('assets/shopping-cart.png') }}" alt="cart"></a>
 </div>
 </nav>

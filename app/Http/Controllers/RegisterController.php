@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
-use App\Http\Controllers\Controller;
+use App\Models\Cart;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
     public function index()
     {
-        return view("auth.register");
+        return view('auth.register');
     }
 
     public function ekleme(Request $request)
@@ -22,15 +23,20 @@ class RegisterController extends Controller
             'password' => 'required|string|confirmed|min:8',
         ]);
 
-        $password = Hash::make($request->password);
-
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect('/login')->with('success', 'Registration successful! Please login.');
-    }
+        // Kullanıcı için bir kart oluştur ve kart ID'sini kullanıcıya ata
+        $cart = Cart::create(['user_id' => $user->id]);
+        $user->card_id = $cart->id;
+        $user->save();
 
+        // Kullanıcıyı otomatik olarak oturum aç
+        Auth::login($user);
+
+        return redirect('/')->with('success', 'Registration successful! You are now logged in.');
+    }
 }
