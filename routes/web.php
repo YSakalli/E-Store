@@ -17,6 +17,9 @@ Route::get('/tshirt', [ProductController::class, 'index'])->name('tshirt');
 
 Route::get('/sweatshirt', function () {return view('pages.sweatshirt');})->name('sweatshirt');
 
+Route::get('/success', function () {return view('pages.success');})->name('order.success');
+
+
 Route::get('/pant', function () {return view('pages.pant');})->name('pant');
 
 Route::get('/backpack', function () {return view('pages.backpack');})->name('backpack');
@@ -50,3 +53,12 @@ Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('register', [RegisterController::class, 'ekleme']);
 
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+    Route::post('/orders/{order}/status', [OrderController::class, 'updateStatus'])->name('orders.updateStatus');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/my-orders', [OrderController::class, 'userOrders'])->name('user.orders');
+    Route::post('/order/{id}/cancel', [OrderController::class, 'cancelOrder'])->name('order.cancel');
+});

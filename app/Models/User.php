@@ -7,6 +7,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
 use App\Models\User;
 use App\Models\Cart;
+use App\Models\Orders;
+
 class User extends Authenticatable
 {
     use HasRoles;
@@ -25,11 +27,11 @@ class User extends Authenticatable
 
     public function orders()
     {
-        return $this->hasMany(Order::class);
+        return $this->hasMany(Orders::class);
     }
     public function cart()
-{
-    return $this->belongsTo(Cart::class, 'cart_id');
-}
+    {
+        return $this->hasOne(Cart::class);
+    }
 }
 
