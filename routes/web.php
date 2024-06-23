@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductController;
 use App\Models\Product;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\CategoryController;
 
 
 Route::get('/', function () {return view('pages.home');})->name('index');
@@ -62,3 +63,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/my-orders', [OrderController::class, 'userOrders'])->name('user.orders');
     Route::post('/order/{id}/cancel', [OrderController::class, 'cancelOrder'])->name('order.cancel');
 });
+
+Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
+Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
+Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+
+
+Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('categories.destroy');

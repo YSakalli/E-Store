@@ -219,6 +219,8 @@ nav {
                 @if(auth()->user()->is_admin)
                     <a href="{{route('addproduct')}}">Ürün Ekle</a>
                     <a href="{{route('orders.index')}}">Gelen Siparişler</a>
+                    <a href="{{route('categories.index')}}">Kategori ekle</a>
+
                 @endif
                 <a href="{{route('user.orders')}}">Siparişlerim</a>
                 <a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
